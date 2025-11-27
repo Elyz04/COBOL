@@ -21,7 +21,9 @@
            ACCEPT ACT-OPTION
            IF FUNCTION LENGTH(FUNCTION TRIM(ACT-OPTION)) = 1 
            AND ACT-OPTION(1:1) NUMERIC THEN
+      *Validate case input = "ABC"
                MOVE FUNCTION NUMVAL(ACT-OPTION) TO WS-USER-OPTION
+      *Validate case input = "1ABC"
                IF WS-USER-OPTION >= 1 AND WS-USER-OPTION <= 4 THEN
                    MOVE 'Y' TO EXIT-FLAG
                ELSE
